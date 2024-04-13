@@ -5,6 +5,7 @@ input = sys.stdin.readline
 
 #-----------------------Functions-----------------------
 
+
 # Takes user input and returns the input as an integer.
 def inp() :
     return(int(input()))
