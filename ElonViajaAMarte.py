@@ -28,6 +28,9 @@ def esSolucion(S,W):
 def esViable(S, x, W):
     return sum(S) + x <= W
 
+def estaEnRango(x, W):
+    return math.ceil(W/2) <= x and x <= W
+
 
 resultados = []
 
@@ -39,9 +42,16 @@ for _ in range(casosDePrueba):
     i = 1
     while i <= len(paquetes):
         x = paquetes[i-1]
-        if esViable(S, x, W):
+        if estaEnRango(x, W):
+            S = []
             S.append(x)
-            indices_seleccionados.append(i)  
+            indices_seleccionados = []
+            indices_seleccionados.append(i) 
+            break
+        else:
+            if esViable(S, x, W):
+                S.append(x)
+                indices_seleccionados.append(i)  
         i += 1
     
     if esSolucion(S, W):
